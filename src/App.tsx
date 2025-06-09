@@ -12,7 +12,7 @@ function App() {
             </Box>
           </GridItem>
           
-           <GridItem bg = "#1C1F26" borderRadius = "20px" {colSpan = 1} >
+           <GridItem bg = "#1C1F26" borderRadius = "20px" colSpan = {1} >
              <Box h = "40vh">
                
              </Box>
