@@ -1,7 +1,5 @@
 import { useState } from 'react'
-import { Box, Button, VStack, Flex, Image, HStack,Text, Spacer, SimpleGrid, GridItem, useBreakpointValue} from '@chakra-ui/react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import {Text} from '@chakra-ui/react'
 import './App.css'
 
 function App() {
