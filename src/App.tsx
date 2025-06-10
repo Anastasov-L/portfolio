@@ -2,7 +2,7 @@ import { Text, Grid, GridItem, Box, VStack, HStack, Image, Spacer,Button } from 
 import { useState } from 'react'; // Make sure this is at the top
 import ME from "../images/me.png"
 import logo from "../images/dev.png"
-import blue from "../images/bluePLus.png"
+import blue from "../images/bluePlus.png"
 import burger from "../images/burger-menu.png"
 
 
