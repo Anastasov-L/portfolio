@@ -37,7 +37,7 @@ function App() {
                 <Text color="white" fontSize={{base:"16px",sm:"18px",md:"25px",lg:"25px",xl:"25px"}} fontWeight = "750" font = "inter">Computer Science</Text>
               </HStack>
             
-            <Text color= "white" fontSize = {{base:"26px",sm:"30px",md:"45px",lg:"45px",xl:"45"}} fontWeight = "750" font = "inter">Academic & Personal Portfolio</Text>
+            <Text color= "white" fontSize = {{base:"26px",sm:"30px",md:"45px",lg:"33px",xl:"45"}} fontWeight = "750" font = "inter">Academic & Personal Portfolio</Text>
             </VStack>
           </Box>
         </GridItem>
@@ -73,8 +73,8 @@ function App() {
         templateColumns="repeat(2, 1fr)"
         templateRows="repeat(4, 1fr)"
         w="90%"
-        h = "70%">
-
+        h = "70%" bg = "red">
+        
         <GridItem colSpan={1} rowSpan={1} display="flex" alignItems="center">
           <Text
             font="inter"
@@ -163,7 +163,7 @@ function App() {
     </VStack>
 
     {/* Page 2 */}
-    <VStack h="90%" w="90%" justifySelf="center" justify = "flex-end" bg = "red" >
+    <VStack h="90%" w="90%" justifySelf="center" justify = "flex-end"  >
       
       <Button onClick={() => setPage(0)} colorScheme="purple">
         Go Back
