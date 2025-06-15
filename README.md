@@ -10,7 +10,7 @@ Deploy your own Vite project with Vercel.
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/vercel/tree/main/examples/vite-react&template=vite-react)
 
-_Live Example: https://vite-react-example.vercel.app_
+_[https://vite-react-example.vercel.app](https://portfolio-beta-one-knc1tpzbyl.vercel.app/)_
 
 ### Deploying From Your Terminal
 
