@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "typegen": "chakra typegen ./src/theme.ts",
   },
   "dependencies": {
     "@chakra-ui/react": "^3.20.0",
@@ -31,9 +32,6 @@
     "vite": "^5.4.1",
     "@chakra-ui/cli": "^<latest-version>"
 
-  }
-  "scripts": {
-    "typegen": "chakra typegen ./src/theme.ts",
   }
 }
 
