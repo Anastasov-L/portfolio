@@ -5,7 +5,6 @@
   "type": "module",
   "scripts": { 
     "dev": "vite",
-    "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
     "typegen": "npx @chakra-ui/cli typegen ./src/theme.ts",
