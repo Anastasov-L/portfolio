@@ -32,5 +32,8 @@
     "@chakra-ui/cli": "^<latest-version>"
 
   }
+  "scripts": {
+    "typegen": "chakra typegen ./src/theme.ts",
+  }
 }
 
