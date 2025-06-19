@@ -1,5 +1,5 @@
 import { Text, Grid, GridItem, Box, VStack, HStack, Image, Spacer,Button, Stack } from '@chakra-ui/react';
-import { useState } from 'react'; // Make sure this is at the top
+import { useState, useEffect } from 'react'; // Make sure this is at the top
 import ME from "../images/me.png"
 import logo from "../images/dev.png"
 import blue from "../images/bluePlus.png"
@@ -11,9 +11,32 @@ import lLogo from "../images/lyceeLogo.png"
 import arr from "../images/arrUP.png"
 import arrD from "../images/arr.png"
 
+declare global {
+  interface Window {
+    dataLayer: any[];
+    gtag: (...args: any[]) => void;
+  }
+}
+
+
 function App() {
   const [page, setPage] = useState(0);
+  
+  useEffect(() => {
+    // Inject GA script tag
+    const script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://www.googletagmanager.com/gtag/js?id=G-0JEVJ1W1C8';
+    document.head.appendChild(script);
 
+    // Initialize GA
+    window.dataLayer = window.dataLayer || [];
+    function gtag(...args: any[]) {
+      window.dataLayer.push(args);
+    }
+    gtag('js', new Date());
+    gtag('config', 'G-0JEVJ1W1C8');
+  }, []);
   return (
     <Box
       w="100%"
