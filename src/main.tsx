@@ -4,6 +4,7 @@ import { ChakraProvider } from '@chakra-ui/react'
 import { system } from "./theme.ts";
 import App from './App.tsx'
 
+
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <ChakraProvider value = {system}>
