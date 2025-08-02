@@ -29,7 +29,7 @@ const ProjectsButton = ({ setPage }: AboutMeProps) => {
             <Menu.Item value="education" onSelect={() => setPage(1)}>
               Front-end
             </Menu.Item>
-            <Menu.Item value="education" onSelect={() => setPage(1)}>
+            <Menu.Item value="ed" onSelect={() => setPage(2)}>
               Portfolio
             </Menu.Item>
           </Menu.Content>

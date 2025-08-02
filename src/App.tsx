@@ -278,7 +278,7 @@ function App() {
           </VStack>
         </GridItem>
 
-        <GridItem bg="#1C1F26" borderRadius="20px" rowSpan={{ base: 2, sm: 2, md: 2, lg: 2, xl: 3 }} maxH={{ base: "480px", sm: "580px", md: "680px", lg: "97vh", xl: "60vw" }} >
+        <GridItem bg="#1C1F26" borderRadius="20px" rowSpan={{ base: 2, sm: 2, md: 2, lg: 2, xl: 3 }} maxH={{ base: "480px", sm: "680px", md: "680px", lg: "105vh", xl: "60vw" }} >
              <ProjectsSection/>
         </GridItem>
         <GridItem rowSpan={{ base: 2, sm: 2, md: 2, lg: 2, xl: 3 }} bg="#1C1F26" borderTopRadius="20px" borderBottomRadius={{ base: "20px", sm: "20px" }} maxH={{ base: "480px", sm: "580px", md: "680px", lg: "97vh", xl: "45vw" }} />
