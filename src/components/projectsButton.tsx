@@ -1,4 +1,4 @@
-import { Button, Menu, Portal, Image, Text } from "@chakra-ui/react"
+import { Button, Menu, Portal, Image } from "@chakra-ui/react"
 import burger from "../../images/burger-menu.png"
 
 interface AboutMeProps {
