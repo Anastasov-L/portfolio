@@ -1,6 +1,6 @@
 import { Text, Grid, GridItem, Box, VStack, HStack, Image, Spacer, Button, Stack } from '@chakra-ui/react';
 import { useState, useEffect } from 'react';
-import ME from "../images/me.png"
+import ME from "../images/ME.jpg"
 import logo from "../images/dev.png"
 import blue from "../images/bluePlus.png"
 import vu from "../images/Vrije.jpg"
@@ -11,6 +11,7 @@ import arr from "../images/arrUP.png"
 import arrD from "../images/arr.png"
 import AboutMe from "../src/components/menuButton.tsx"
 import ProjectsSection from "../src/components/ProjectsSection.tsx"
+import './App.css';
 
 declare global {
   interface Window {
@@ -81,7 +82,7 @@ function App() {
                 About me
               </Text>
               <Spacer />
-              <AboutMe setPage={setPage} position="absolute" />
+              <AboutMe setPage={setPage} />
             </HStack>
             <Box
               w="100%"
@@ -90,58 +91,60 @@ function App() {
               h="100%"
             >
               {/* Page 1 */}
-              <VStack h="100%" pt = "100px" w="100%" px="5" gap={{ base: "0px", sm: "10px", xl: "0px" }} >
+              <VStack  h="100%" pt = "100px" w="100%" px="5" gap={{ base: "0px", sm: "10px", xl: "0px" }} >
                 <Grid
                   templateColumns="repeat(2, 1fr)"
                   templateRows="repeat(4, 1fr)"
                   w="90%"
-                  h="81%"
+                  h="91%"
                   rowGap="0px"
                   columnGap={{ base: "0px", sm: "30px", lg: "0px" }} >
 
-                  <GridItem colSpan={{ base: 1, sm: 2, md: 2, lg: 1, xl: 2, ll: 2, }} rowSpan={1} display="flex" alignItems="flex-end" mb="10px" borderTop="3px solid" borderColor="#B0B0B0" >
+                  <GridItem colSpan={{ base: 1, sm: 1, md: 2, lg: 1, xl: 1, ll: 2 }} rowSpan={{base:1,sm:2,md:1}} display="flex" alignItems="flex-end" mb="10px" borderTop={{base:"3px solid #B0B0B0",xl:"3px solid #B0B0B0"}} borderColor="#B0B0B0" >
                     <Text
                       font="inter"
+                      py="    20px"
                       fontSize={{
-                        base: "6vw",
-                        sm: "4vw",
+                        base: "3.6vw",
+                        sm: "3.6vw",
                         md: "4vw",
-                        lg: "4vw",
+                        lg: "3vw",
                         xl: "1.9vw",
                       }}
                       color="white" verticalAlign="top" >
-                      Nice to meet you, I'm Lyudmil Anastasov
+                      Pleased to meet you, I'm Lyudmil Anastasov. Here's a bit more about me..
                     </Text>
                   </GridItem>
 
                   <GridItem
-                    rowSpan={{ base: 1, sm: 3, md: 3, lg: 4, xl: 2, ll: 2 }}
+                    rowSpan={{ base: 1, sm: 2, md: 3, lg: 3, xl: 1, ll: 2 }}
                     colSpan={1}
                     display="flex"
                     justifyContent="center"
                     alignItems="center"
                   >
-                    <Image boxSize={{ base: "auto",sm:"85%",md:"85%",lg: "85%", xl: "80%" }} src={ME} />
+                    <Image boxSize={{ base: "85%",sm:"85%",md:"85%",lg: "85%", xl: "90%" }} src={ME} />
                   </GridItem>
 
                   <GridItem
-                    colSpan={{ base: 2, sm: 1, md: 1, lg: 1, xl: 1 }}
-                    rowSpan={{ base: 2, sm: 3, md: 3, lg: 2, xl: 2 }}
+                    colSpan={{ base: 2, sm: 2, md: 1, lg: 1, xl: 2,ll:1 }}
+                    rowSpan={{ base: 2, sm: 2, md: 3, lg: 2, xl: 2,ll:2 }}
                     alignContent="center">
                     <Text
                       font="inter"
                       fontSize={{
-                        base: "10px",
-                        sm: "1.9vw",
-                        md: "2.1vw",
-                        lg: "2vw",
-                        xl: "1vw",
+                        base: "12px",
+                        sm: "16px",
+                        md: "18px",
+                        lg: "19px",
+                        xl: "13px",
+                        ll:"16px"
                       }}
                       color="#B0B0B0"
                       textAlign={{ base: "center", sm: "start" }}
                     >
-                      Enthusiastic third-year Computer Science student with a focus on
-                      software engineering and machine learning. I am passionate about
+                      Enthusiastic Computer Science student and Full Stack Software engineer with a focus on
+                      software and machine learning. I am passionate about
                       using my technical skills to tackle real-world challenges and
                       contribute to meaningful projects. Beyond coding, I enjoy arts,
                       thus bringing a creative edge to my approach in problem-solving.
@@ -278,7 +281,7 @@ function App() {
           </VStack>
         </GridItem>
 
-        <GridItem bg="#1C1F26" borderRadius="20px" rowSpan={{ base: 2, sm: 2, md: 2, lg: 2, xl: 3 }} maxH={{ base: "480px", sm: "680px", md: "680px", lg: "105vh", xl: "60vw" }} >
+        <GridItem bg="#1C1F26" borderRadius="20px" rowSpan={{ base: 2, sm: 2, md: 2, lg: 2, xl: 3 }} maxH={{ base: "520px", sm: "680px", md: "720px", lg: "105vh", xl: "60vw" }} >
              <ProjectsSection/>
         </GridItem>
         <GridItem rowSpan={{ base: 2, sm: 2, md: 2, lg: 2, xl: 3 }} bg="#1C1F26" borderTopRadius="20px" borderBottomRadius={{ base: "20px", sm: "20px" }} maxH={{ base: "480px", sm: "580px", md: "680px", lg: "97vh", xl: "45vw" }} />
