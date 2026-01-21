@@ -3,23 +3,27 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "scripts": { 
+  "scripts": {
     "dev": "vite",
+    "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview",
-    "typegen": "npx @chakra-ui/cli typegen ./src/theme.ts",
-    "build": "npm run typegen && vite build"
+    "preview": "vite preview"
   },
   "dependencies": {
+    "@chakra-ui/icons": "^2.2.4",
     "@chakra-ui/react": "^3.20.0",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
+    "@vercel/analytics": "^1.5.0",
     "framer-motion": "^12.16.0",
+    "i18next": "^25.7.4",
+    "lucide-react": "^0.562.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "@chakra-ui/cli": "^3.21.0"
+    "react-i18next": "^16.5.3"
   },
   "devDependencies": {
+    "@chakra-ui/cli": "^3.21.0",
     "@eslint/js": "^9.9.0",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
@@ -30,9 +34,6 @@
     "globals": "^15.9.0",
     "typescript": "^5.5.3",
     "typescript-eslint": "^8.0.1",
-    "vite": "^5.4.1",
-    "@chakra-ui/cli": "^3.21.0"
-
+    "vite": "^5.4.1"
   }
 }
-
