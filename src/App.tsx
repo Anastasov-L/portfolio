@@ -102,7 +102,7 @@ const flagMap: Record<string, string> = {
   de: de,
 };
 
-const [currentFlag, setCurrentFlag] = useState(gb); // default = UK
+const [currentFlag, setCurrentFlag] = useState(flagMap[i18n.language] || gb);
 
   const langButtonRef = useRef<HTMLButtonElement | null>(null);
 const [langMenuWidth, setLangMenuWidth] = useState<number>(0);
@@ -489,4 +489,3 @@ const [langMenuWidth, setLangMenuWidth] = useState<number>(0);
 }
 
 export default App;
-
