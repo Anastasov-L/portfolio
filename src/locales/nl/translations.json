@@ -1,0 +1,74 @@
+{
+  "Home": "Home",
+  "About": "Over mij",
+  "Work Experience": "Werkervaring",
+  "Projects": "Projecten",
+  "Contact": "Contact",
+  "Lng": "Taal",
+
+  "Full Stack Software Engineer ready to":
+    "Full Stack Software Designer & Engineer klaar om",
+  "meet": "te voldoen aan",
+  "your": "de",
+  "business’s needs": "behoeften van uw bedrijf",
+  "2+ years of experience": "Meer dan 2 jaar ervaring",
+
+  "Powered by Me": "Aangedreven door mij",
+
+  "Hello! I'm": "Hallo! Ik ben",
+  "from Bulgaria. I'm a final year":
+    "oorspronkelijk uit Bulgarije. Ik zit in mijn laatste jaar",
+  "student": "van mijn studie",
+  "with a minor in": "met een minor in",
+
+  "I'm completing my studies at Vrije Universiteit Amsterdam, while working as a":
+    "Ik rond momenteel mijn studie aan de Vrije Universiteit Amsterdam af terwijl ik werk als",
+
+  "active team member since then": "actief teamlid sinds",
+  "Developed a production grade": "Een productieklare applicatie ontwikkeld",
+  "Automated browser tasks using": "Browserprocessen geautomatiseerd met",
+  "Building scalable": "Het bouwen van schaalbare",
+  "and payment platforms, engineering clean and intuitive":
+    "en betalingsplatformen, met de ontwikkeling van duidelijke en intuïtieve interfaces",
+  "strengthening service reliability, and proactively resolving real-world issues using":
+    "het verbeteren van de betrouwbaarheid van diensten en het proactief oplossen van problemen door middel van",
+  "diagnostics": "diagnostische tools",
+
+  "Assisted students as": "Studenten begeleid als",
+  "Checked homework and supported the lecturer":
+    "Huiswerk gecontroleerd en de docent ondersteund",
+
+  "Get in": "Neem",
+  "Touch": "contact op",
+
+  "Connect with me professionally": "Verbind professioneel met mij",
+  "View Profile": "Bekijk profiel",
+  "View Repositories": "Bekijk repositories",
+  "Check out my projects & code": "Bekijk mijn projecten en code",
+
+  "I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.":
+    "Ik sta altijd open voor nieuwe projecten, creatieve ideeën of kansen om deel uit te maken van uw visie.",
+   "Previous":"Vorige",
+   "Next":"Ga verder",
+   "Login page": "Inlogpagina",
+  "Register page": "Registratiepagina",
+  "User management system": "Gebruikersbeheersysteem",
+  "Admin dashboard": "Beheerdersdashboard",
+  "Reviews page (grid & list views)": "Beoordelingenpagina (raster- en lijstweergave)",
+
+  "React + TypeScript + Chakra UI": "React + TypeScript + Chakra UI",
+  "Django REST backend": "Django REST-backend",
+  "Google Firebase auth": "Google Firebase-authenticatie",
+  "Infinite scrolling": "Oneindig scrollen",
+  "Optimistic UI updates": "Optimistische UI-updates",
+  "Admin dashboard and management": "Beheerdersdashboard en -beheer",
+
+  "Created for box3.nl while working for Capisoft": "Gemaakt voor box3.nl tijdens mijn werk bij Capisoft",
+  "Pagination": "Paginering",
+  "Filtration": "Filteren",
+  
+  "Payment system Stripe": "Betalingssysteem Stripe",
+  "Language Support": "Taalondersteuning",
+  "Amsterdam, Netherlands": "Amsterdam, Nederland",
+  "Sofia, Bulgaria": "Sofia, Bulgarije"
+}
