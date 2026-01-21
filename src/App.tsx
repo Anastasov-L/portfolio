@@ -1,292 +1,489 @@
-import { Text, Grid, GridItem, Box, VStack, HStack, Image, Spacer, Button, Stack } from '@chakra-ui/react';
-import { useState, useEffect } from 'react';
-import ME from "../images/ME.jpg"
-import logo from "../images/dev.png"
-import blue from "../images/bluePlus.png"
-import vu from "../images/Vrije.jpg"
-import L from "../images/Lycee.png"
-import vuLogo from "../images/vrijeLogo.png"
-import lLogo from "../images/lyceeLogo.png"
-import arr from "../images/arrUP.png"
-import arrD from "../images/arr.png"
-import AboutMe from "../src/components/menuButton.tsx"
-import ProjectsSection from "../src/components/ProjectsSection.tsx"
-import './App.css';
+import { Box, HStack, Text, Button,  Flex, Image, VStack } from "@chakra-ui/react";
+import { useTranslation } from "react-i18next";
+import { useRef } from "react";
 
-declare global {
-  interface Window {
-    dataLayer: any[];
-    gtag: (...args: any[]) => void;
-  }
-}
-
+import {
+  MenuRoot,
+  MenuTrigger,
+  MenuContent,
+  MenuItem,
+  Portal,
+  MenuPositioner
+} from "@chakra-ui/react";
+import { useState } from "react";
+import { ChevronDown } from "lucide-react";
+import i18n from "./i18n";
+import HomePage from "./pages/homePage";
+import de from "./assets/de.svg";
+import nl from "./assets/nl.svg";
+import fr from "./assets/fr.svg";
+import gb from "./assets/gb.svg";
+import ContactPage from "./pages/contactPage";
+import AboutPage from "./pages/aboutPage";
+import WorkExperiencePage from "./pages/workExperiencePage";
+import ProjectsPage from "./pages/projectsPage";
+import { Home, Info, Briefcase, Folder, Mail } from "lucide-react";
+type PageKey = "home" | "about" | "work" | "projects" | "contact";
 
 function App() {
-  const [page, setPage] = useState(0);
+  const { t } = useTranslation();
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [currentPage, setCurrentPage] = useState("home");
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.async = true;
-    script.src = 'https://www.googletagmanager.com/gtag/js?id=G-0JEVJ1W1C8';
-    document.head.appendChild(script);
+const navRef = useRef<HTMLDivElement | null>(null);
+const buttonRefs: Record<PageKey, React.MutableRefObject<HTMLButtonElement | null>> = {
+  home: useRef<HTMLButtonElement | null>(null),
+  about: useRef<HTMLButtonElement | null>(null),
+  work: useRef<HTMLButtonElement | null>(null),
+  projects: useRef<HTMLButtonElement | null>(null),
+  contact: useRef<HTMLButtonElement | null>(null),
+};
+const pages: PageKey[] = ["home", "about", "work", "projects", "contact"];
+const [currentIndex, setCurrentIndex] = useState(0);
 
-    window.dataLayer = window.dataLayer || [];
-    function gtag(...args: any[]) {
-      window.dataLayer.push(args);
-    }
-    gtag('js', new Date());
-    gtag('config', 'G-0JEVJ1W1C8');
-  }, []);
+const shiftLeft = () => {
+  setCurrentIndex((prev) => (prev - 1 + pages.length) % pages.length);
+  setCurrentPage(pages[(currentIndex - 1 + pages.length) % pages.length]);
+};
+
+const shiftRight = () => {
+  setCurrentIndex((prev) => (prev + 1) % pages.length);
+  setCurrentPage(pages[(currentIndex + 1) % pages.length]);
+};
+
+const leftPage = pages[(currentIndex - 1 + pages.length) % pages.length];
+const centerPage = pages[currentIndex];
+const rightPage = pages[(currentIndex + 1) % pages.length];
+const iconMap: Record<PageKey, JSX.Element> = {
+  home: <Home size={22} />,
+  about: <Info size={22} />,
+  work: <Briefcase size={22} />,
+  projects: <Folder size={22} />,
+  contact: <Mail size={22} />,
+};
+
+const labelMap: Record<PageKey, string> = {
+  home: "",
+  about: "",
+  work: "",
+  projects: "",
+  contact: "",
+};
+
+
+const scrollToButton = (page: PageKey) => {
+  const nav = navRef.current;
+  const btn = buttonRefs[page]?.current;
+  if (!nav || !btn) return;
+
+  const isOverflowing = nav.scrollWidth > nav.clientWidth;
+  if (!isOverflowing) return;
+
+  const btnLeft = btn.offsetLeft;
+  const btnWidth = btn.offsetWidth;
+  const navWidth = nav.clientWidth;
+
+  const targetScrollLeft = btnLeft - navWidth / 2 + btnWidth / 2;
+
+  nav.scrollTo({
+    left: targetScrollLeft,
+    behavior: "smooth",
+  });
+};
+
+
+
+
+const flagMap: Record<string, string> = {
+  en: gb,
+  nl: nl,
+  fr: fr,
+  de: de,
+};
+
+const [currentFlag, setCurrentFlag] = useState(gb); // default = UK
+
+  const langButtonRef = useRef<HTMLButtonElement | null>(null);
+const [langMenuWidth, setLangMenuWidth] = useState<number>(0);
+
+
   return (
-    <Box
-      w="100%"
-      minHeight="fit-content"
-      bg="#0F1115"
-      display="flex"
-      justifyContent="center"
+  
+    <Box position="absolute" inset="0" bg="#0E0F11" overflow="hidden">
+      
+      <Box position="absolute" top="-18%" left={{base:"-75%",md:"-65%"}} w="160%" h="50%" transform="rotate(-49deg)"
+        bg="linear-gradient(180deg, #00FF8A 0%, #00E676 100%)"
+        clipPath="polygon(0% 90%, 100% 8%, 100% 92%, 0% 100%)"
+        filter="drop-shadow(0px 40px 80px rgba(0, 0, 0, 0.45))"
+      />
 
+      <Box position="absolute" top="-18%" left="-35%" w="160%" h="10%" transform="rotate(-56deg)"
+        bg="linear-gradient(180deg, #00FF8A 0%, #00E676 100%)"
+        clipPath="polygon(0% 90%, 100% 8%, 100% 92%, 0% 100%)"
+        filter="drop-shadow(0px 25px 60px rgba(0, 0, 0, 0.45))"
+      />
+
+      <Box position="absolute" top="-18%" left="37%" w="170%" h="1%" transform="rotate(-52deg)"
+        bg={{base:"none",md:"linear-gradient(180deg, #00FF8A 0%, #00E676 100%)"}}
+        clipPath="polygon(0% 0%, 100% 8%, 100% 92%, 0% 100%)"
+        filter="drop-shadow(0px 18px 40px rgba(0, 0, 0, 0.35))"
+      />
+
+      <Box position="absolute" top="-18%" left="35%" w="160%" h="22%" transform="rotate(-64deg)"
+        bg="linear-gradient(180deg, #00FF8A 0%, #00E676 100%)"
+        clipPath="polygon(0% 0%, 100% 99%, 100% 0%, 0% 100%)"
+        filter="drop-shadow(0px 30px 70px rgba(0, 0, 0, 0.45))"
+      />
+
+      <Box
+        position="relative"
+        zIndex={10}
+        w="80vw"
+        h="75vh"
+        mx="auto"
+        maxH="600px"
+        mt="15.5vh"
+        py="60px"
+        px={{base:"30px",sm:"49px",md:"45px",lg:"60px",xl:"90px"}}
+        bg="#1E1F23"
+        borderRadius="29px"
+        boxShadow="0 20px 60px rgba(0,0,0,0.45)"
+      >
+        
+{/* NAVBAR */}
+<HStack w="100%" justify="space-between" align="center">
+
+  <HStack gap="40px" minW={{ base: "50px", md: "280px", lg: "300px" }}>
+    <Text fontSize={{ base: "24px", md: "35px" }} color="#00FF8A">
+      L A
+    </Text>
+    <Text
+      display={{ base: "none", md: "block" }}
+      fontSize={{ base: "14px", md: "24px" }}
+      color="white"
     >
+      Lyudmil Anastasov
+    </Text>
+  </HStack>
 
-      <Grid
-        templateRows={{ base: "auto repeat(8, 1fr)", sm: "auto repeat(8, 1fr)", md: "auto repeat(8, 1fr)", lg: "auto repeat(8, 1fr)", xl: "auto repeat(5, 1fr)" }}
-        templateColumns={{ base: "1fr", sm: "1fr", md: "1fr", lg: "1fr", xl: "repeat(2, 1fr)" }}
-        rowGap="90px"
-        columnGap="90px"
-        w="100%"
-        px="4vw">
+  {/* NAV BUTTONS (scrollable) */}
+  <HStack
+    ref={navRef}
+  overflowX="auto"
+  whiteSpace="nowrap"
+  maxW="60vw"
+  h="30px"
+  display={{ base: "none", md: "none", lg: "flex" }}   
+    css={{
+      scrollbarWidth: "none",
+      msOverflowStyle: "none",
+      "&::-webkit-scrollbar": { display: "none" },
+    }}
+  >
+    <Button
+      bg="transparent"
+      ref={buttonRefs.home}
+      onClick={() => {
+        setCurrentPage("home");
+        scrollToButton("home");
+      }}
+    >
+      <Text
+        fontSize="17px"
+        h="30px"
+        borderBottom={currentPage === "home" ? "2px solid #00FF8A" : "none"}
+      >
+        {t("Home")}
+      </Text>
+    </Button>
 
-        <GridItem rowSpan={1} colSpan={1} maxH={{ base: "400px", sm: "700px", md: "900px", lg: "200px", xl: "35vw" }}>
-          <Box w="100%" h="100%" display="flex"  >
-            <VStack justify="left" align="start" py="5" w="100%">
-              <HStack>
-                <Image src={logo} boxSize="50px" />
-                <Text color="white" fontSize={{ base: "16px", sm: "18px", md: "25px", lg: "25px", xl: "25px" }} fontWeight="750" font="inter">Computer Science</Text>
-              </HStack>
+    <Button
+      bg="transparent"
+      ref={buttonRefs.about}
+      onClick={() => {
+        setCurrentPage("about");
+        scrollToButton("about");
+      }}
+    >
+      <Text
+        fontSize="17px"
+        h="30px"
+        borderBottom={currentPage === "about" ? "2px solid #00FF8A" : "none"}
+      >
+        {t("About")}
+      </Text>
+    </Button>
 
-              <Text color="white" fontSize={{ base: "26px", sm: "30px", md: "45px", lg: "33px", xl: "30px", ll: "40px" }} fontWeight="750" font="inter">Academic & Personal Portfolio</Text>
-            </VStack>
-          </Box>
-        </GridItem>
+    <Button
+      bg="transparent"
+      ref={buttonRefs.work}
+      onClick={() => {
+        setCurrentPage("work");
+        scrollToButton("work");
+      }}
+    >
+      <Text
+        fontSize="17px"
+        h="30px"
+        borderBottom={currentPage === "work" ? "2px solid #00FF8A" : "none"}
+      >
+        {t("Work Experience")}
+      </Text>
+    </Button>
 
-        <GridItem display="flex" rowSpan={{ base: 2, sm: 2, md: 2, lg: 2, xl: 3 }} bg="#1C1F26" borderBottomRadius="20px" borderTopRadius={{ base: "20px", sm: "20px", md: "20px", lg: "20px", xl: "0px" }} maxH={{ base: "480px", sm: "580px", md: "680px", lg: "97vh", xl: "47vw" }} overflow="hidden">
+    <Button
+      bg="transparent"
+      ref={buttonRefs.projects}
+      onClick={() => {
+        setCurrentPage("projects");
+        scrollToButton("projects");
+      }}
+    >
+      <Text
+        fontSize="17px"
+        h="30px"
+        borderBottom={
+          currentPage === "projects" ? "2px solid #00FF8A" : "none"
+        }
+      >
+        {t("Projects")}
+      </Text>
+    </Button>
 
-          <VStack
-            gap={{ base: "0px", sm: "0px", md: "20px", lg: "20px", xl: "1vh", ll: "3vh" }}
-            overflow="hidden"
-            position="relative"
-            w="100%"
-            h="100%">
-            <HStack  bg="#1C1F26" alignSelf="center" position="absolute" top="0" zIndex="2" pt="2" w="90%">
-              <Image src={logo} boxSize="30px" />
-              <Text font="inter" fontWeight="750" pt = "5px" color="white">
-                About me
-              </Text>
-              <Spacer />
-              <AboutMe setPage={setPage} />
-            </HStack>
-            <Box
-              w="100%"
-              transition="transform 0.6s ease"
-              transform={{ base: `translateY(-${page * 100}%)` }}
-              h="100%"
+    <Button
+      bg="transparent"
+      ref={buttonRefs.contact}
+      onClick={() => {
+        setCurrentPage("contact");
+        scrollToButton("contact");
+      }}
+    >
+      <Text
+        fontSize="17px"
+        h="30px"
+        borderBottom={
+          currentPage === "contact" ? "2px solid #00FF8A" : "none"
+        }
+      >
+        {t("Contact")}
+      </Text>
+    </Button>
+  </HStack>
+
+  <MenuRoot onOpenChange={(e) => setMenuOpen(e.open)}>
+
+    <MenuTrigger asChild>
+  <Button
+    ref={langButtonRef}
+    onClick={() => {
+      if (langButtonRef.current) {
+        setLangMenuWidth(langButtonRef.current.offsetWidth);
+      }
+    }}
+    bg="transparent"
+    px="10px"
+    h={{ base: "25px", md: "35px" }}
+    display="flex"
+    alignItems="center"
+    gap="8px"
+  >
+    <Image src={currentFlag} boxSize="20px" />
+
+    <ChevronDown
+      size={16}
+      style={{
+        transition: "transform 0.25s ease",
+        transform: menuOpen ? "rotate(90deg)" : "rotate(0deg)",
+      }}
+    />
+  </Button>
+</MenuTrigger>
+
+
+
+    <Portal>
+      <MenuPositioner>
+        <MenuContent
+          bg="#1E1F23"
+          border="1px solid #00FF8A"
+          borderRadius="10px"
+          w={`${langMenuWidth}px`}   
+  minW="0"
+        >
+          <MenuItem
+            value="en"
+            color="white"
+            onClick={() => {
+              i18n.changeLanguage("en");
+              setCurrentFlag(flagMap["en"]);
+              setMenuOpen(false);
+            }}
+          >
+            EN <Image src={gb} boxSize="15px" ml="8px" />
+          </MenuItem>
+
+          <MenuItem
+            value="nl"
+            color="white"
+            onClick={() => {
+              i18n.changeLanguage("nl");
+              setCurrentFlag(flagMap["nl"]);
+              setMenuOpen(false);
+            }}
+          >
+            NL <Image src={nl} boxSize="15px" ml="8px" />
+          </MenuItem>
+
+          <MenuItem
+            value="fr"
+            color="white"
+            onClick={() => {
+              i18n.changeLanguage("fr");
+              setCurrentFlag(flagMap["fr"]);
+              setMenuOpen(false);
+            }}
+          >
+            FR <Image src={fr} boxSize="15px" ml="8px" />
+          </MenuItem>
+
+          <MenuItem
+            value="de"
+            color="white"
+            onClick={() => {
+              i18n.changeLanguage("de");
+              setCurrentFlag(flagMap["de"]);
+              setMenuOpen(false);
+            }}
+          >
+            DE <Image src={de} boxSize="15px" ml="8px" />
+          </MenuItem>
+        </MenuContent>
+      </MenuPositioner>
+    </Portal>
+  </MenuRoot>
+</HStack>
+
+
+{mobileMenuOpen && (
+  <VStack
+    position="absolute"
+    top="80px"
+    left="50%"
+    transform="translateX(-50%)"
+    w="80%"
+    bg="#141518"
+    border="1px solid #00FF8A"
+    borderRadius="15px"
+    p="20px"
+    zIndex={9999}
+    gap="20px"
+  >
+    <Button w="100%" onClick={() => { setCurrentPage("home"); setMobileMenuOpen(false); }}>
+      {t("Home")}
+    </Button>
+
+    <Button w="100%" onClick={() => { setCurrentPage("about"); setMobileMenuOpen(false); }}>
+      {t("About")}
+    </Button>
+
+    <Button w="100%" onClick={() => { setCurrentPage("work"); setMobileMenuOpen(false); }}>
+      {t("Work Experience")}
+    </Button>
+
+    <Button w="100%" onClick={() => { setCurrentPage("projects"); setMobileMenuOpen(false); }}>
+      {t("Projects")}
+    </Button>
+
+    <Button w="100%" onClick={() => { setCurrentPage("contact"); setMobileMenuOpen(false); }}>
+      {t("Contact")}
+    </Button>
+  </VStack>
+)}
+
+
+
+        {/* PAGE SWITCHER */}
+        {currentPage === "home" && <HomePage />}
+        {currentPage === "about" && <AboutPage />}
+        {currentPage === "contact" && <ContactPage />}
+        {currentPage === "work" && <WorkExperiencePage />}
+        {currentPage === "projects" && <ProjectsPage />}
+{/* MOBILE 3-ICON SLIDING NAV */}
+<HStack
+  display={{ base: "flex", lg: "none" }}
+  position="absolute"
+  bottom="22px"
+  left="50%"
+  transform="translateX(-50%)"
+
+  w="58%"                       // ← FIX
+  h="70px"
+  bg="rgba(20,21,24,0.75)"
+  backdropFilter="blur(12px)"
+  borderRadius="18px"
+  border="1px solid rgba(0,255,138,0.15)"
+  justify="space-around"
+
+  boxShadow="0 6px 20px rgba(0,0,0,0.35)"
+  zIndex={9999}
+>
+
+  {/* LEFT ICON */}
+  <Button
+    variant="ghost"
+    onClick={shiftLeft}
+    color="white"
+    flexDir="column"
+    h="50px"
+  >
+    {iconMap[leftPage]}
+    <Text fontSize="10px">{labelMap[leftPage]}</Text>
+  </Button>
+
+  {/* CENTER (ACTIVE) */}
+  <Button
+    variant="ghost"
+    onClick={() => {}}
+    color="#00FF8A"
+    flexDir="column"
+    h="50px"
+  >
+    {iconMap[centerPage]}
+    <Text fontSize="11px">{labelMap[centerPage]}</Text>
+  </Button>
+
+  {/* RIGHT ICON */}
+  <Button
+    variant="ghost"
+    onClick={shiftRight}
+    color="white"
+    flexDir="column"
+    h="50px"
+  >
+    {iconMap[rightPage]}
+    <Text fontSize="10px">{labelMap[rightPage]}</Text>
+  </Button>
+
+</HStack>
+
+        
+
+        {/* DISCOVER BUTTON ONLY ON HOME */}
+        {currentPage === "home" && (
+          <Flex justifyContent="flex-end" w="100%" >
+            <Button
+              bg="transparent"
+              color="#00FF8A"
+              fontSize={{base:"12px",sm:"14px",md:"17px",lg:"22px"}}
+              borderRadius="0px"
+              _hover={{ borderBottom: "1px solid #00FF8A" }}
             >
-              {/* Page 1 */}
-              <VStack  h="100%" pt = "100px" w="100%" px="5" gap={{ base: "0px", sm: "10px", xl: "0px" }} >
-                <Grid
-                  templateColumns="repeat(2, 1fr)"
-                  templateRows="repeat(4, 1fr)"
-                  w="90%"
-                  h="91%"
-                  rowGap="0px"
-                  columnGap={{ base: "0px", sm: "30px", lg: "0px" }} >
-
-                  <GridItem colSpan={{ base: 1, sm: 1, md: 2, lg: 1, xl: 1, ll: 2 }} rowSpan={{base:1,sm:2,md:1}} display="flex" alignItems="flex-end" mb="10px" borderTop={{base:"3px solid #B0B0B0",xl:"3px solid #B0B0B0"}} borderColor="#B0B0B0" >
-                    <Text
-                      font="inter"
-                      py="    20px"
-                      fontSize={{
-                        base: "3.6vw",
-                        sm: "3.6vw",
-                        md: "4vw",
-                        lg: "3vw",
-                        xl: "1.9vw",
-                      }}
-                      color="white" verticalAlign="top" >
-                      Pleased to meet you, I'm Lyudmil Anastasov. Here's a bit more about me..
-                    </Text>
-                  </GridItem>
-
-                  <GridItem
-                    rowSpan={{ base: 1, sm: 2, md: 3, lg: 3, xl: 1, ll: 2 }}
-                    colSpan={1}
-                    display="flex"
-                    justifyContent="center"
-                    alignItems="center"
-                  >
-                    <Image boxSize={{ base: "85%",sm:"85%",md:"85%",lg: "85%", xl: "90%" }} src={ME} />
-                  </GridItem>
-
-                  <GridItem
-                    colSpan={{ base: 2, sm: 2, md: 1, lg: 1, xl: 2,ll:1 }}
-                    rowSpan={{ base: 2, sm: 2, md: 3, lg: 2, xl: 2,ll:2 }}
-                    alignContent="center">
-                    <Text
-                      font="inter"
-                      fontSize={{
-                        base: "12px",
-                        sm: "16px",
-                        md: "18px",
-                        lg: "19px",
-                        xl: "13px",
-                        ll:"16px"
-                      }}
-                      color="#B0B0B0"
-                      textAlign={{ base: "center", sm: "start" }}
-                    >
-                      Enthusiastic Computer Science student and Full Stack Software engineer with a focus on
-                      software and machine learning. I am passionate about
-                      using my technical skills to tackle real-world challenges and
-                      contribute to meaningful projects. Beyond coding, I enjoy arts,
-                      thus bringing a creative edge to my approach in problem-solving.
-                    </Text>
-                  </GridItem>
-
-                  <GridItem
-                    colSpan={2}
-                    rowSpan={1}
-                    alignContent="center" borderTop="3px solid" borderColor="#B0B0B0">
-                    <HStack gap="25%" w="100%">
-                      <HStack gap="2px">
-                        <Text
-                          font="inter"
-                          fontSize={{ base: "25px", md: "40px", lg: "45px" }}
-                          fontWeight="bold"
-                          color="white"
-                        >5</Text>
-                        <Image src={blue} boxSize={{ base: "2vw", sm: "2vw", md: "2vw", lg: "2vw", xl: "1vw" }} />
-                        <Text
-                          font="inter"
-                          fontSize={{
-                            base: "10px",
-                            sm: "12px",
-                            md: "15px",
-                            lg: "17px",
-                            xl: "17px",
-                          }}
-                          color="white"
-                        >
-                          Years of experience
-                        </Text>
-                      </HStack>
-
-                      <HStack gap="2px" px="30px" >
-                        <Text
-                          font="inter"
-                          fontSize={{ base: "25px", md: "40px", lg: "45px" }}
-                          fontWeight="bold"
-                          color="white"
-                        >5</Text>
-                        <Image src={blue} boxSize={{ base: "2vw", sm: "2vw", md: "2vw", lg: "2vw", xl: "1vw" }} />
-                        <Text
-                          font="inter"
-                          fontSize={{
-                            base: "10px",
-                            sm: "12px",
-                            md: "15px",
-                            lg: "17px",
-                            xl: "17px",
-                          }}
-                          color="white"
-                        >
-                          Years of studies
-                        </Text>
-                      </HStack>
-                    </HStack>
-                  </GridItem>
-                </Grid>
-                <Spacer />
-                <Button
-                  w={{ base: "40px", sm: "45px", md: "50px", xl: "40px", ll: "60px" }}
-                  h={{ base: "40px", sm: "45px", md: "50px", xl: "40px", ll: "60px" }}
-                  borderRadius="full"
-                  bg="linear-gradient(to right, #005ce6, #00dfd8)"
-                  color="white"
-                  fontWeight="bold"
-                  fontSize="lg"
-                  border="none"
-                  overflow="hidden"
-                  _hover={{
-                    bg: "linear-gradient(to right, #0047b3, #00c0c0)",
-                  }} onClick={() => setPage(1)}> <Image src={arrD} boxSize="auto" /></Button>
-
-              </VStack>
-
-              {/* Page 2 */}
-              <VStack   h={{ base: "110%", sm: "105%", md: "79%", lg: "77%", xl: "100%" }} w="90%" justifySelf="center" gap={{ base: "20px", xl: "35px", ll: "100px" }} display="flex" >
-                <VStack gap="20px" h="100%" display="flex" pt = "100px">
-
-                  <Text fontSize="3vw" font="inter" color="white">Education</Text>
-
-                  <Stack w="100%" h="40%" alignItems="flex-start" justifyContent="flex-start" direction="row" flex="1" gap="20px">
-                    <Box w="70%" h="100%" >
-                      <Image src={L} boxSize={{ base: "100%", sm: "100%", md: "100%", lg: "100%", xl: "100%", ll: "100%" }} />
-                    </Box>
-                    <VStack w="30%" alignSelf="flex-start" gap="0px" h="100%">
-                      <Spacer />
-                      <Image src={lLogo} w="90%" />
-                      <Spacer />
-                      <Box>
-                        <Text font="inter" color="white" fontSize={{ base: "2vw", xl: "0.95vw" }}>Specialization: Mathematics & Informatics</Text>
-                      </Box>
-                    </VStack>
-                  </Stack>
-
-                  <Stack w="100%" h="40%" alignItems="flex-start" justifyContent="flex-start" direction="row" flex="1" gap="20px" >
-                    <Box w="70%" h="100%" bg="orange">
-                      <Image src={vu} boxSize={{ base: "100%", sm: "100%", md: "100%", lg: "100%", xl: "100%", ll: "100%" }} />
-                    </Box>
-                    <VStack w="30%" alignItems="flex-start" alignSelf="flex-start" h="100%"  >
-                      <Spacer />
-                      <Image src={vuLogo} w="20vw" />
-
-                      <Spacer />
-                      <Box>
-                        <Text font="inter" color="white" fontSize={{ base: "2vw", xl: "0.92vw" }}>Bachelor Computer Science</Text>
-                        <Text font="inter" color="white" fontSize={{ base: "2vw", xl: "0.92vw" }}>Minor: Deep Programming</Text>
-                      </Box>
-                    </VStack>
-                  </Stack>
-
-
-                </VStack>
-                     <Button onClick={() => setPage(0)}
-                     w={{ base: "40px", sm: "45px", md: "50px", xl: "40px", ll: "60px" }}
-                     h={{ base: "40px", sm: "45px", md: "50px", xl: "40px", ll: "60px" }}
-                     borderRadius="full"
-                     zIndex = "9999"
-                     bg="linear-gradient(to right, #005ce6, #00dfd8)"
-                     color="white"
-                     fontWeight="bold"
-                     fontSize="lg"
-                     border="none"
-                     overflow="hidden"
-                     _hover={{
-                       bg: "linear-gradient(to right, #0047b3, #00c0c0)",
-                     }}><Image src={arr} boxSize="auto" /></Button>
-              </VStack>
-
-            </Box>
-
-
-          </VStack>
-        </GridItem>
-
-        <GridItem bg="#1C1F26" borderRadius="20px" rowSpan={{ base: 2, sm: 2, md: 2, lg: 2, xl: 3 }} maxH={{ base: "520px", sm: "680px", md: "720px", lg: "105vh", xl: "60vw" }} >
-             <ProjectsSection/>
-        </GridItem>
-        <GridItem rowSpan={{ base: 2, sm: 2, md: 2, lg: 2, xl: 3 }} bg="#1C1F26" borderTopRadius="20px" borderBottomRadius={{ base: "20px", sm: "20px" }} maxH={{ base: "480px", sm: "580px", md: "680px", lg: "97vh", xl: "45vw" }} />
-        <GridItem rowSpan={{ base: 2, sm: 2, md: 2, lg: 2, xl: 2 }} bg="#1C1F26" borderTopRadius="20px" maxH={{ base: "480px", sm: "580px", md: "680px", lg: "97vh", xl: "60vw" }} />
-      </Grid>
+              {t("Powered by Me")} →
+            </Button>
+          </Flex>
+        )}
+      </Box>
     </Box>
   );
 }
