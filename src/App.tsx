@@ -139,7 +139,7 @@ const [langMenuWidth, setLangMenuWidth] = useState<number>(0);
       <Box
         position="relative"
         zIndex={10}
-        w={{base:"90vh",md:"80vw"}}
+        w={{base:"90vw",md:"80vw"}}
         h={{base:"85vh",md:"75vh"}}
         mx="auto"
         maxH="600px"
