@@ -139,11 +139,11 @@ const [langMenuWidth, setLangMenuWidth] = useState<number>(0);
       <Box
         position="relative"
         zIndex={10}
-        w="80vw"
-        h="75vh"
+        w={{base:"87vw",md:"80vw"}}
+        h={{base:"80vh",md:"75vh"}}
         mx="auto"
         maxH="600px"
-        mt="15.5vh"
+        mt={{base:"7vh",md:"15.5vh"}}
         py="60px"
         px={{base:"30px",sm:"49px",md:"45px",lg:"60px",xl:"90px"}}
         bg="#1E1F23"
@@ -403,13 +403,11 @@ const [langMenuWidth, setLangMenuWidth] = useState<number>(0);
 
 
 
-        {/* PAGE SWITCHER */}
         {currentPage === "home" && <HomePage />}
         {currentPage === "about" && <AboutPage />}
         {currentPage === "contact" && <ContactPage />}
         {currentPage === "work" && <WorkExperiencePage />}
         {currentPage === "projects" && <ProjectsPage />}
-{/* MOBILE 3-ICON SLIDING NAV */}
 <HStack
   display={{ base: "flex", lg: "none" }}
   position="absolute"
@@ -417,7 +415,7 @@ const [langMenuWidth, setLangMenuWidth] = useState<number>(0);
   left="50%"
   transform="translateX(-50%)"
 
-  w="58%"                       // ← FIX
+  w="58%"                       
   h="70px"
   bg="rgba(20,21,24,0.75)"
   backdropFilter="blur(12px)"
@@ -469,7 +467,6 @@ const [langMenuWidth, setLangMenuWidth] = useState<number>(0);
 
         
 
-        {/* DISCOVER BUTTON ONLY ON HOME */}
         {currentPage === "home" && (
           <Flex justifyContent="flex-end" w="100%" >
             <Button
