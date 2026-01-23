@@ -1,8 +1,6 @@
 import { Box, HStack, Text, Button,  Flex, Image, VStack, Spacer } from "@chakra-ui/react";
 import { useTranslation } from "react-i18next";
 import { useRef } from "react";
-const mobileNavRef = useRef<HTMLDivElement | null>(null);
-
 import {
   MenuRoot,
   MenuTrigger,
@@ -42,6 +40,7 @@ function App() {
   const [isDragging, setIsDragging] = useState(false);
   const [dragStartX, setDragStartX] = useState(0);
   const [dragScrollLeft, setDragScrollLeft] = useState(0);
+  const mobileNavRef = useRef<HTMLDivElement | null>(null);
 
 const navRef = useRef<HTMLDivElement | null>(null);
 const buttonRefs: Record<PageKey, React.MutableRefObject<HTMLButtonElement | null>> = {
