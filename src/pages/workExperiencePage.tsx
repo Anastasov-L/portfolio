@@ -1,8 +1,8 @@
 import { Text, VStack, HStack, Image, Box } from "@chakra-ui/react";
 import { useTranslation } from "react-i18next";
-import capisoftLogo from "../../images/capisoft.png";
-import fiverLogo from "../../images/fiver.png";
-import telerikLogo from "../../images/telerik.png";
+import capisoftLogo from "../../images/capi.jpg";
+import fiverLogo from "../../images/fiver2.png";
+import telerikLogo from "../../images/telerik2.png";
 
 export default function WorkExperiencePage() {
   const { t } = useTranslation();
@@ -10,13 +10,12 @@ export default function WorkExperiencePage() {
   return (
     <VStack w="100%" h={{base:"80%",lg:"100%"}} align="flex-start"  >
 
-      {/* SCROLLABLE WRAPPER */}
       <Box
         w="100%"
         h="100%"
         overflowY="auto"
         overflowX="hidden"
-        pr="10px" // prevent scrollbar overlay
+        pr="10px" 
       >
         <Box
           display="grid"
@@ -26,18 +25,17 @@ export default function WorkExperiencePage() {
           gridTemplateColumns={{ base: "1fr", lg: "1fr 1fr" }}
           gridTemplateRows={{ base: "auto", lg: "repeat(5, 1fr)" }}
         >
-          {/* BIG BLOCK - spans 5 rows */}
           <VStack
             bg="#141518"
             borderRadius="20px"
-            border="1px solid #00FF8A"
+            border="2px solid #00FF8A"
             p="30px"
             align="flex-start"
             gridRow={{ base: "auto", lg: "1 / span 5" }}
             gridColumn="1"
           >
-            <HStack w="100%">
-              <Image src={capisoftLogo} boxSize="55px" objectFit="contain" />
+            <HStack w="100%" gap = "10px">
+              <Image src={capisoftLogo} boxSize="45px" borderRadius="8px" objectFit="contain" />
               <VStack align="flex-start" gap="0px">
                 <Text fontSize="24px" color="white" fontWeight="700">
                   Full-Stack Developer
@@ -67,18 +65,17 @@ export default function WorkExperiencePage() {
             </VStack>
           </VStack>
 
-          {/* SMALL BLOCK 1 — spans 3 rows */}
           <VStack
             bg="#141518"
             borderRadius="20px"
-            border="1px solid #00FF8A"
+            border="2px solid #00FF8A"
             p="30px"
             align="flex-start"
             gridColumn={{ base: "1", lg: "2" }}
             gridRow={{ base: "auto", lg: "1 / span 3" }}
           >
-            <HStack w="100%">
-              <Image src={telerikLogo} boxSize="55px" objectFit="contain" />
+            <HStack w="100%" gap="10px">
+              <Image src={telerikLogo} boxSize="45px" borderRadius="12px"  objectFit="contain" />
               <VStack align="flex-start" gap="0px">
                 <Text fontSize="24px" color="white" fontWeight="700">
                   Game Developer Assistant
@@ -95,18 +92,17 @@ export default function WorkExperiencePage() {
             </VStack>
           </VStack>
 
-          {/* SMALL BLOCK 2 — spans 2 rows */}
           <VStack
             bg="#141518"
             borderRadius="20px"
-            border="1px solid #00FF8A"
+            border="2px solid #00FF8A"
             p="30px"
             align="flex-start"
             gridColumn={{ base: "1", lg: "2" }}
             gridRow={{ base: "auto", lg: "4 / span 2" }}
           >
-            <HStack w="100%">
-              <Image src={fiverLogo} boxSize="35px" objectFit="contain" />
+            <HStack w="100%" gap="10px">
+              <Image src={fiverLogo} boxSize="47px" borderRadius="12px" objectFit="contain" />
               <VStack align="flex-start" gap="0px">
                 <Text fontSize="24px" color="white" fontWeight="700">
                   Freelance Web Developer

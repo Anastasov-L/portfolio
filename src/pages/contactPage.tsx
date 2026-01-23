@@ -34,7 +34,7 @@ export default function ContactPage() {
           <Box
             bg="#141518"
             borderRadius="20px"
-            border="1px solid #00FF8A"
+            border="2px solid #00FF8A"
             p={{ base: 6, md: 8 }}
             textAlign="center"
           >
@@ -63,7 +63,7 @@ export default function ContactPage() {
           <Box
             bg="#141518"
             borderRadius="20px"
-            border="1px solid #00FF8A"
+            border="2px solid #00FF8A"
             p={{ base: 6, md: 8 }}
             textAlign="center"
           >
@@ -74,13 +74,27 @@ export default function ContactPage() {
             <Text color="white" mt={1} fontSize={{ base: "14px", md: "16px" }}>
               lyudmil.anastasov@gmail.com
             </Text>
+            <Button
+  mt={5}
+  w="100%"
+  variant="outline"
+  borderColor="#00FF8A"
+  color="#00FF8A"
+  _hover={{ bg: "#00FF8A", color: "#0E0F11" }}
+  onClick={() =>
+    window.location.href = "mailto:lyudmil.anastasov@gmail.com"
+  }
+>
+  {t("Send Email")}
+</Button>
+
           </Box>
 
           {/* GITHUB */}
           <Box
             bg="#141518"
             borderRadius="20px"
-            border="1px solid #00FF8A"
+            border="2px solid #00FF8A"
             p={{ base: 6, md: 8 }}
             textAlign="center"
           >

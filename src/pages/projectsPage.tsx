@@ -224,7 +224,7 @@ export default function ProjectsPage() {
           minH="0"
           bg="#141518"
           borderRadius="20px"
-          border="1px solid #00FF8A"
+          border="2px solid #00FF8A"
           p="20px"
         >
           <Text color="#00FF8A" fontSize="22px" fontWeight="600">
@@ -283,7 +283,7 @@ export default function ProjectsPage() {
   w={{ base: "100%", lg: "50%" }}
   bg="#141518"
   borderRadius="20px"
-  border="1px solid #00FF8A"
+  border="2px solid #00FF8A"
   p="30px"
   align="flex-start"
   display="flex"
