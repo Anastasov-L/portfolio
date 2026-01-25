@@ -223,7 +223,7 @@ function App() {
         }}
         boxShadow="0 20px 60px rgba(0,0,0,0.45)"
       >
-        <HStack w="100%">
+        <HStack w="100%" px={{base:"15px",lg:"0px"}}>
           <HStack gap="40px" h="45px"  justifyContent="flex-start"  align="flex-end" alignItems="flex-end" alignContent="flex-end"  minW={{ base: "50px", md: "280px", lg: "300px" }}>
             <Text  fontSize={{ base: "28px", md: "28px" }} color="#00FF8A">
               L A

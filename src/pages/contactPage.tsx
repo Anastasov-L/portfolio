@@ -39,6 +39,7 @@ export default function ContactPage() {
             border={{base:"none",lg:"2px solid #00FF8A"}}
             p={{ base: 6, md: 8 }}
             textAlign="center"
+            justifyItems="center"
           >
             <Linkedin size={48} color="#00FF8A" />
             <Text
@@ -73,6 +74,7 @@ export default function ContactPage() {
             border={{base:"none",lg:"2px solid #00FF8A"}}
             p={{ base: 6, md: 8 }}
             textAlign="center"
+            justifyItems="center"
           >
             <Mail size={48} color="#00FF8A" />
             <Text
@@ -108,6 +110,7 @@ export default function ContactPage() {
             border={{base:"none",lg:"2px solid #00FF8A"}}
             p={{ base: 6, md: 8 }}
             textAlign="center"
+            justifyItems="center"
           >
             <Github size={48} color="#00FF8A" />
             <Text
