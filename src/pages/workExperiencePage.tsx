@@ -78,7 +78,7 @@ export default function WorkExperiencePage() {
               <Image src={telerikLogo} boxSize="45px" borderRadius="12px"  objectFit="contain" />
               <VStack align="flex-start" gap="0px">
                 <Text fontSize="24px" color="white" fontWeight="700">
-                  Game Developer Assistant
+                  Game Dev Assistant
                 </Text>
                 <Text fontSize="16px" color="gray.400">
                   Jan 2023 - Jan 2023
@@ -105,7 +105,7 @@ export default function WorkExperiencePage() {
               <Image src={fiverLogo} boxSize="47px" borderRadius="12px" objectFit="contain" />
               <VStack align="flex-start" gap="0px">
                 <Text fontSize="24px" color="white" fontWeight="700">
-                  Freelance Web Developer
+                  Freelance Web Dev
                 </Text>
                 <Text fontSize="16px" color="gray.400">
                   Jan 2021 - Apr 2023
