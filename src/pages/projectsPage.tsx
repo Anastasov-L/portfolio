@@ -91,7 +91,8 @@ const projects = [
       "Register page",
       "User management  system",
       "Admin dashboard",
-      "Reviews page (grid & list views)"
+      "Reviews page (grid & list views)",
+      "React + TypeScript + Chakra UI",
     ]
   },
   {
@@ -124,10 +125,9 @@ const projects = [
       "Pagination",
       "Filtration",
       "Created for box3.nl while working for Capisoft",
+      "Admin dashboard and management",
       "Google Firebase auth",
       "React + TypeScript + Chakra UI",
-      
-      "Admin dashboard and management"
     ]
   },
   {
@@ -249,6 +249,8 @@ export default function ProjectsPage() {
             <Button
               position="absolute"
               top="50%"
+              w="30px"
+              h="35px"
               left="5px"
               transform="translateY(-50%)"
               bg="rgba(0,0,0,0.4)"
@@ -262,11 +264,13 @@ export default function ProjectsPage() {
             <Button
               position="absolute"
               top="50%"
+              w="30px"
+              h="35px"
               right="5px"
               transform="translateY(-50%)"
               bg="rgba(0,0,0,0.4)"
               color="white"
-              borderRadius="70%"
+              borderRadius="50%"
               onClick={nextImage}
             >
               <ChevronRight />
@@ -278,28 +282,28 @@ export default function ProjectsPage() {
           </Text>
         </VStack>
 
-        {/* RIGHT: DETAILS (unchanged on lg) */}
         <VStack
   w={{ base: "100%", lg: "50%" }}
   bg="#141518"
   borderRadius="20px"
   border="2px solid #00FF8A"
-  p="30px"
+  px="30px"
+  py="22px"
   align="flex-start"
   display="flex"
   flexDir="column"
   flex="1"
-minH="0"
-overflowY="auto"
+  minH="0"
+  overflowY="auto"
 
 >
   <Box w="100%" flex="0 0 auto">
     <Text
-      fontSize={{ base: "26px", md: "28px", lg: "32px" }}
+      fontSize={{ base: "22px", md: "22px", lg: "22px" }}
       color="white"
       fontWeight="700"
     >
-      {project.title}
+      Project Information
     </Text>
 
     <SimpleGrid
@@ -307,6 +311,7 @@ overflowY="auto"
       gapX="40px"
       gapY="8px"
       pt={3}
+      py="20px"
       w="100%"
     >
       {project.description.map((line, idx) => (
@@ -316,7 +321,7 @@ overflowY="auto"
       ))}
     </SimpleGrid>
   </Box>
-
+    <Spacer/>
   <Box w="100%" flex="0 0 auto">
     <Button
       mt="20px"
@@ -343,12 +348,12 @@ overflowY="auto"
         : "View on GitHub"}
     </Button>
 
-    <HStack pt="10px" w="100%">
-      <Button onClick={prevProject} fontSize={{base:"0px",md:"16px"}}>
+    <HStack alignSelf="flex-end" w="100%" pt="20px">
+      <Button onClick={prevProject} _hover={{color:"#00FF8A"}} fontSize={{base:"0px",md:"16px"}}>
         <ChevronLeft /> {t("Previous")}
       </Button>
       <Spacer />
-      <Button onClick={nextProject} fontSize={{base:"0px",md:"16px"}}>
+      <Button onClick={nextProject} _hover={{color:"#00FF8A"}} fontSize={{base:"0px",md:"16px"}}>
         {t("Next")} <ChevronRight />
       </Button>
     </HStack>

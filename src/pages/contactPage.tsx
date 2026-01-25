@@ -10,7 +10,7 @@ export default function ContactPage() {
 
   return (
     <Box w="100%" h={{ base: "80%", lg: "100%" }} overflowY="auto" pr="10px">
-      <VStack w="100%">
+      <VStack w="100%" gap="0px">
         <Box>
           <Text
             fontSize={{ base: "32px", md: "40px", lg: "56px" }}
@@ -28,8 +28,10 @@ export default function ContactPage() {
         <SimpleGrid
           columns={{ base: 1, md: 1, lg: 3 }}
           w="100%"
-          gap={{ base: "55px", md: "30px", lg: "40px" }}
+          gap={{ base: "45px", md: "30px", lg: "40px" }}
           py="2vh"
+          pl="8px"
+          //justifyItems="center"
         >
           <Box
             bg={{base:"#2B322C",lg:"#141518"}}
@@ -52,7 +54,7 @@ export default function ContactPage() {
 
             <Button
               mt={5}
-              w="50%"
+              w={{base:"50%",lg:"100%"}}
               bg="#1E1F23"
               variant="outline"
               borderColor={{base:"none",lg:"#00FF8A"}}
@@ -85,7 +87,7 @@ export default function ContactPage() {
             </Text>
             <Button
               mt={5}
-              w="50%"
+              w={{base:"50%",lg:"100%"}}
               variant="outline"
               borderColor={{base:"none",lg:"#00FF8A"}}
               border={{base:"none",lg:"2px solid #00FF8A"}}
@@ -121,7 +123,7 @@ export default function ContactPage() {
 
             <Button
               mt={5}
-              w="50%"
+              w={{base:"50%",lg:"100%"}}
               variant="outline"
               border={{base:"none",lg:"2px solid #00FF8A"}}
               borderColor={{base:"none",lg:"#00FF8A"}}
@@ -134,7 +136,7 @@ export default function ContactPage() {
             </Button>
           </Box>
         </SimpleGrid>
-        <Box display={{base:"flex",lg:"none"}} flex="1" justifyContent="center" bg="#2B322C"  borderRadius="20px" h="100px" py="20px">
+        <Box ml="8px" mt="30px" display={{base:"flex",lg:"none"}} flex="1" justifyContent="center" bg="#2B322C"  borderRadius="20px" h="100px" py="20px">
         <Text
           fontSize={{ base: "16px", md: "18px", lg: "20px" }}
           color={{ base: "white", lg: "gray.400" }}
@@ -153,7 +155,7 @@ export default function ContactPage() {
           display={{base:"none",lg:"flex"}}
           textAlign="center"
           maxW="90%"
-          py="0px"
+          py="15px"
         >
           {t(
             "I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.",

@@ -3,6 +3,7 @@ import {
   Text,
   VStack,
   HStack,
+  Spacer,
   Image,
   useBreakpointValue,
 } from "@chakra-ui/react";
@@ -24,7 +25,7 @@ export default function AboutPage() {
       h={{ base: "80%", lg: "100%" }}
       overflowY="auto"
       overflowX="hidden"
-      pr="10px"
+      pl="2px"
     >
       <HStack
         w="100%"
@@ -85,7 +86,7 @@ export default function AboutPage() {
               "I'm completing my studies at Vrije Universiteit Amsterdam, while working as a",
             )}{" "}
             <Box as="span" color="#00FF8A" fontWeight="600">
-              Full Stack Developer
+              Full Stack Dev
             </Box>
             .
           </Text>
@@ -141,7 +142,6 @@ export default function AboutPage() {
           w={{ base: "100%", lg: "60%" }}
           align="flex-start"
           gap="30px"
-          h="100%"
           display={{ base: "none", lg: "flex" }}
         >
           <Text fontSize="20px" color="gray.300" lineHeight="160%">
@@ -165,7 +165,7 @@ export default function AboutPage() {
           <VStack
             w="100%"
             align="flex-start"
-            gap="40px"
+            gap="10px"
             h="100%"
             justify="flex-end"
           >
@@ -186,7 +186,7 @@ export default function AboutPage() {
                 </Text>
               </VStack>
             </HStack>
-
+            <Spacer/>
             <HStack
               w="100%"
               p="20px"

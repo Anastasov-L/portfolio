@@ -211,7 +211,7 @@ function App() {
           lg: "15vh", // large screens ALWAYS 15vh
         }}
         py="60px"
-        px={{ base: "15px", sm: "49px", md: "45px", lg: "60px", xl: "90px" }}
+        px={{ base: "15px", sm: "45px", md: "45px", lg: "60px", xl: "90px" }}
         bg="#1E1F23"
         borderTopRadius={{
           base: currentPage === "home" ? "29px" : "0px",
@@ -223,9 +223,9 @@ function App() {
         }}
         boxShadow="0 20px 60px rgba(0,0,0,0.45)"
       >
-        <HStack w="100%" align="center" >
-          <HStack gap="40px"  minW={{ base: "50px", md: "280px", lg: "300px" }}>
-            <Text fontSize={{ base: "28px", md: "35px" }} color="#00FF8A">
+        <HStack w="100%">
+          <HStack gap="40px" h="45px"  justifyContent="flex-start"  align="flex-end" alignItems="flex-end" alignContent="flex-end"  minW={{ base: "50px", md: "280px", lg: "300px" }}>
+            <Text  fontSize={{ base: "28px", md: "28px" }} color="#00FF8A">
               L A
             </Text>
             <Text
@@ -242,15 +242,22 @@ function App() {
             overflowX="auto"
             whiteSpace="nowrap"
             maxW="60vw"
-            h="30px"
             display={{ base: "none", md: "none", lg: "flex" }}
             css={{
               scrollbarWidth: "none",
               msOverflowStyle: "none",
               "&::-webkit-scrollbar": { display: "none" },
             }}
+            h="45px"
+            align="flex-end"
+            alignContent="flex-end"
+            alignItems="flex-end"
+            justify="flex-end"
+            justifyContent="flex-end"
+            justifyItems="flex-end"
           >
             <Button
+              h="30px"
               bg="transparent"
               ref={desktopButtonRefs.home}
               onClick={() => {
@@ -272,6 +279,7 @@ function App() {
             <Button
               bg="transparent"
               ref={desktopButtonRefs.about}
+              h="30px"
               onClick={() => {
                 setHoverSelectedPage("about");
                 setCurrentPage("about");
@@ -291,6 +299,7 @@ function App() {
 
             <Button
               bg="transparent"
+              h="30px"
               ref={desktopButtonRefs.work}
               onClick={() => {
                 setHoverSelectedPage("work");
@@ -311,6 +320,7 @@ function App() {
 
             <Button
               bg="transparent"
+              h="30px"
               ref={desktopButtonRefs.projects}
               onClick={() => {
                 setHoverSelectedPage("projects");
@@ -332,6 +342,7 @@ function App() {
             <Button
               bg="transparent"
               ref={desktopButtonRefs.contact}
+              h="30px"
               onClick={() => {
                 setHoverSelectedPage("contact");
                 setCurrentPage("contact");
@@ -399,7 +410,7 @@ function App() {
                         setMenuOpen(false);
                       }}
                     >
-                      EN <Image src={gb} boxSize="15px" ml="8px" />
+                      EN <Image src={gb} mt="4px" boxSize="15px" ml="8px" />
                     </MenuItem>
 
                     <MenuItem
@@ -411,7 +422,7 @@ function App() {
                         setMenuOpen(false);
                       }}
                     >
-                      NL <Image src={nl} boxSize="15px" ml="8px" />
+                      NL <Image mt="4px" src={nl} boxSize="15px" ml="8px" />
                     </MenuItem>
 
                     <MenuItem
@@ -423,7 +434,7 @@ function App() {
                         setMenuOpen(false);
                       }}
                     >
-                      FR <Image src={fr} boxSize="15px" ml="8px" />
+                      FR <Image mt="4px" src={fr} boxSize="15px" ml="8px" />
                     </MenuItem>
 
                     <MenuItem
@@ -435,7 +446,7 @@ function App() {
                         setMenuOpen(false);
                       }}
                     >
-                      DE <Image src={de} boxSize="15px" ml="8px" />
+                      DE <Image mt="4px" src={de} boxSize="15px" ml="8px" />
                     </MenuItem>
                   </MenuContent>
                 </MenuPositioner>
@@ -660,11 +671,11 @@ function App() {
               }}
             >
               <Box display={{ base: "block", lg: "none" }}>
-                {t("Discover")} →
+                {t("Discover")} 
               </Box>
 
               <Box display={{ base: "none", lg: "block" }}>
-                {t("Powered by Me")} →
+                {t("Powered by Me")} 
               </Box>
             </Button>
           </Flex>
