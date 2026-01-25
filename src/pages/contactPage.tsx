@@ -9,13 +9,14 @@ export default function ContactPage() {
   const { t } = useTranslation();
 
   return (
-    <Box w="100%" h={{base:"80%",lg:"100%"}} overflowY="auto" pr="10px">
+    <Box w="100%" h={{ base: "80%", lg: "100%" }} overflowY="auto" pr="10px">
       <VStack w="100%">
         <Box>
           <Text
             fontSize={{ base: "32px", md: "40px", lg: "56px" }}
             fontWeight="700"
             color="white"
+            visibility={{ base: "none", lg: "visible" }}
           >
             {t("Get in")}{" "}
             <Box as="span" color="#00FF8A">
@@ -30,7 +31,6 @@ export default function ContactPage() {
           gap={{ base: "25px", md: "30px", lg: "40px" }}
           py="2vh"
         >
-          {/* LINKEDIN */}
           <Box
             bg="#141518"
             borderRadius="20px"
@@ -39,7 +39,11 @@ export default function ContactPage() {
             textAlign="center"
           >
             <Linkedin size={48} color="#00FF8A" />
-            <Text fontSize={{ base: "20px", md: "22px", lg: "24px" }} mt={3} color="#00FF8A">
+            <Text
+              fontSize={{ base: "20px", md: "22px", lg: "24px" }}
+              mt={3}
+              color="#00FF8A"
+            >
               LinkedIn
             </Text>
             <Text color="white" mt={1} fontSize={{ base: "14px", md: "16px" }}>
@@ -59,7 +63,6 @@ export default function ContactPage() {
             </Button>
           </Box>
 
-          {/* EMAIL */}
           <Box
             bg="#141518"
             borderRadius="20px"
@@ -68,29 +71,31 @@ export default function ContactPage() {
             textAlign="center"
           >
             <Mail size={48} color="#00FF8A" />
-            <Text fontSize={{ base: "20px", md: "22px", lg: "24px" }} mt={3} color="#00FF8A">
+            <Text
+              fontSize={{ base: "20px", md: "22px", lg: "24px" }}
+              mt={3}
+              color="#00FF8A"
+            >
               Email
             </Text>
             <Text color="white" mt={1} fontSize={{ base: "14px", md: "16px" }}>
               lyudmil.anastasov@gmail.com
             </Text>
             <Button
-  mt={5}
-  w="100%"
-  variant="outline"
-  borderColor="#00FF8A"
-  color="#00FF8A"
-  _hover={{ bg: "#00FF8A", color: "#0E0F11" }}
-  onClick={() =>
-    window.location.href = "mailto:lyudmil.anastasov@gmail.com"
-  }
->
-  {t("Send Email")}
-</Button>
-
+              mt={5}
+              w="100%"
+              variant="outline"
+              borderColor="#00FF8A"
+              color="#00FF8A"
+              _hover={{ bg: "#00FF8A", color: "#0E0F11" }}
+              onClick={() =>
+                (window.location.href = "mailto:lyudmil.anastasov@gmail.com")
+              }
+            >
+              {t("Send Email")}
+            </Button>
           </Box>
 
-          {/* GITHUB */}
           <Box
             bg="#141518"
             borderRadius="20px"
@@ -99,7 +104,11 @@ export default function ContactPage() {
             textAlign="center"
           >
             <Github size={48} color="#00FF8A" />
-            <Text fontSize={{ base: "20px", md: "22px", lg: "24px" }} mt={3} color="#00FF8A">
+            <Text
+              fontSize={{ base: "20px", md: "22px", lg: "24px" }}
+              mt={3}
+              color="#00FF8A"
+            >
               GitHub
             </Text>
             <Text color="white" mt={1} fontSize={{ base: "14px", md: "16px" }}>
@@ -122,12 +131,14 @@ export default function ContactPage() {
 
         <Text
           fontSize={{ base: "16px", md: "18px", lg: "20px" }}
-          color="gray.400"
+          color={{ base: "white", lg: "gray.400" }}
           textAlign="center"
           maxW="90%"
           py="0px"
         >
-          {t("I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.")}
+          {t(
+            "I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.",
+          )}
         </Text>
       </VStack>
     </Box>
