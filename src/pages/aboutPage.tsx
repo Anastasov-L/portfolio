@@ -142,7 +142,7 @@ export default function AboutPage() {
           align="flex-start"
           gap="30px"
           h="100%"
-          visibility={{ base: "none", lg: "visible" }}
+          display={{ base: "none", lg: "flex" }}
         >
           <Text fontSize="20px" color="gray.300" lineHeight="160%">
             {t("Hello! I'm")}{" "}

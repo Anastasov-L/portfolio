@@ -97,13 +97,13 @@ function App() {
       behavior: "smooth",
     });
   };
-  const circleColors: Record<PageKey, string> = {
-    home: "#B2F5EA", // Light teal
-    about: "#C3DAFE", // Light indigo
-    work: "#FEEBC8", // Light orange
-    projects: "#E9D8FD", // Light purple
-    contact: "#FBD38D", // Light yellow
-  };
+//  const circleColors: Record<PageKey, string> = {
+// //   home: "#B2F5EA", // Light teal
+//    about: "#C3DAFE", // Light indigo
+//    work: "#FEEBC8", // Light orange
+//    projects: "#E9D8FD", // Light purple
+//    contact: "#FBD38D", // Light yellow
+ // };
 
   const flagMap: Record<string, string> = {
     en: gb,
@@ -223,9 +223,9 @@ function App() {
         }}
         boxShadow="0 20px 60px rgba(0,0,0,0.45)"
       >
-        <HStack w="100%" align="center">
-          <HStack gap="40px" minW={{ base: "50px", md: "280px", lg: "300px" }}>
-            <Text fontSize={{ base: "24px", md: "35px" }} color="#00FF8A">
+        <HStack w="100%" align="center" >
+          <HStack gap="40px"  minW={{ base: "50px", md: "280px", lg: "300px" }}>
+            <Text fontSize={{ base: "28px", md: "35px" }} color="#00FF8A">
               L A
             </Text>
             <Text
@@ -350,8 +350,8 @@ function App() {
             </Button>
           </HStack>
           <Flex>
-            <MenuRoot onOpenChange={(e) => setMenuOpen(e.open)}>
-              <MenuTrigger asChild>
+            <MenuRoot onOpenChange={(e) => setMenuOpen(e.open)} >
+              <MenuTrigger asChild >
                 <Button
                   ref={langButtonRef}
                   onClick={() => {
@@ -613,7 +613,7 @@ function App() {
                     w={hoverSelectedPage === page ? "58px" : "55px"}
                     h={hoverSelectedPage === page ? "58px" : "55px"}
                     borderRadius="50%"
-                    bg={circleColors[page]}
+                    bg="#00FF8A"
                     display="flex"
                     alignItems="center"
                     justifyContent="center"
