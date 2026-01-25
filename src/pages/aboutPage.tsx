@@ -104,8 +104,8 @@ export default function AboutPage() {
             w="100%"
             p="20px"
             borderRadius="15px"
-            bg="#141518   "
-            border="2px solid #00FF8A"
+            bg={{base:"#2B322C",lg:"#141518"}}
+            border={{base:"none",lg:"2px solid #00FF8A"}}
           >
             <Image src={vrijeLogo} boxSize="60px" objectFit="contain" />
             <VStack align="flex-start" gap="0px">
@@ -122,9 +122,9 @@ export default function AboutPage() {
             mt={{ base: "35px", lg: "none" }}
             w="100%"
             p="20px"
+            bg={{base:"#2B322C",lg:"#141518"}}
             borderRadius="15px"
-            bg="#141518"
-            border="2px solid #00FF8A"
+            border={{base:"none",lg:"2px solid #00FF8A"}}
           >
             <Image src={lyceeLogo} boxSize="60px" objectFit="contain" />
             <VStack align="flex-start" gap="0px">

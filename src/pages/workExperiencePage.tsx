@@ -15,7 +15,7 @@ export default function WorkExperiencePage() {
         h="100%"
         overflowY="auto"
         overflowX="hidden"
-        pr="10px" 
+        pr="0px" 
       >
         <Box
           display="grid"
@@ -26,9 +26,9 @@ export default function WorkExperiencePage() {
           gridTemplateRows={{ base: "auto", lg: "repeat(5, 1fr)" }}
         >
           <VStack
-            bg="#141518"
+            bg={{base:"#2B322C",lg:"#141518"}}
             borderRadius="20px"
-            border="2px solid #00FF8A"
+            border={{base:"none",lg:"2px solid #00FF8A"}}
             p="30px"
             align="flex-start"
             gridRow={{ base: "auto", lg: "1 / span 5" }}
@@ -66,9 +66,9 @@ export default function WorkExperiencePage() {
           </VStack>
 
           <VStack
-            bg="#141518"
+            bg={{base:"#2B322C",lg:"#141518"}}
             borderRadius="20px"
-            border="2px solid #00FF8A"
+            border={{base:"none",lg:"2px solid #00FF8A"}}
             p="30px"
             align="flex-start"
             gridColumn={{ base: "1", lg: "2" }}
@@ -93,9 +93,9 @@ export default function WorkExperiencePage() {
           </VStack>
 
           <VStack
-            bg="#141518"
+            bg={{base:"#2B322C",lg:"#141518"}}
             borderRadius="20px"
-            border="2px solid #00FF8A"
+            border={{base:"none",lg:"2px solid #00FF8A"}}
             p="30px"
             align="flex-start"
             gridColumn={{ base: "1", lg: "2" }}

@@ -19,7 +19,7 @@ import {
   MenuPositioner,
 } from "@chakra-ui/react";
 import { useState } from "react";
-import { ChevronDown, ChevronLeftCircle } from "lucide-react";
+import { ChevronDown} from "lucide-react";
 import i18n from "./i18n";
 import HomePage from "./pages/homePage";
 import de from "./assets/de.svg";
@@ -30,11 +30,11 @@ import ContactPage from "./pages/contactPage";
 import AboutPage from "./pages/aboutPage";
 import WorkExperiencePage from "./pages/workExperiencePage";
 import ProjectsPage from "./pages/projectsPage";
-import { Info, Briefcase, Folder, Mail } from "lucide-react";
+import { Home,Info, Briefcase, Folder, Mail } from "lucide-react";
 type PageKey = "home" | "about" | "work" | "projects" | "contact";
 
 const iconMap: Record<PageKey, JSX.Element> = {
-  home: <ChevronLeftCircle size={22} />,
+  home: <Home size={22} />,
   about: <Info size={22} />,
   work: <Briefcase size={22} />,
   projects: <Folder size={22} />,
@@ -360,7 +360,7 @@ function App() {
               </Text>
             </Button>
           </HStack>
-          <Flex>
+          <Flex pt="15px">
             <MenuRoot onOpenChange={(e) => setMenuOpen(e.open)} >
               <MenuTrigger asChild >
                 <Button
