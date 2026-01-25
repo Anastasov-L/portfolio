@@ -266,7 +266,7 @@ export default function ProjectsPage() {
               transform="translateY(-50%)"
               bg="rgba(0,0,0,0.4)"
               color="white"
-              borderRadius="50%"
+              borderRadius="70%"
               onClick={nextImage}
             >
               <ChevronRight />

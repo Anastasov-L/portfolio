@@ -141,7 +141,7 @@ function App() {
       position="absolute"
       inset="0"
       bg="#0E0F11"
-      overflowY={{ base: "visible", lg: "hidden" }}
+      overflowY= "hidden"
       overflowX="hidden"
       minH="100vh"
       h={{ base: "fit-content", md: "100vh" }}

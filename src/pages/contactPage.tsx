@@ -28,13 +28,13 @@ export default function ContactPage() {
         <SimpleGrid
           columns={{ base: 1, md: 1, lg: 3 }}
           w="100%"
-          gap={{ base: "25px", md: "30px", lg: "40px" }}
+          gap={{ base: "55px", md: "30px", lg: "40px" }}
           py="2vh"
         >
           <Box
-            bg="#141518"
+            bg={{base:"#2B322C",lg:"#141518"}}
             borderRadius="20px"
-            border="2px solid #00FF8A"
+            border={{base:"none",lg:"2px solid #00FF8A"}}
             p={{ base: 6, md: 8 }}
             textAlign="center"
           >
@@ -52,9 +52,11 @@ export default function ContactPage() {
 
             <Button
               mt={5}
-              w="100%"
+              w="50%"
+              bg="#1E1F23"
               variant="outline"
-              borderColor="#00FF8A"
+              borderColor={{base:"none",lg:"#00FF8A"}}
+              border={{base:"none",lg:"2px solid #00FF8A"}}
               color="#00FF8A"
               _hover={{ bg: "#00FF8A", color: "#0E0F11" }}
               onClick={() => window.open(linkedinURL, "_blank")}
@@ -64,9 +66,9 @@ export default function ContactPage() {
           </Box>
 
           <Box
-            bg="#141518"
+            bg={{base:"#2B322C",lg:"#141518"}}
             borderRadius="20px"
-            border="2px solid #00FF8A"
+            border={{base:"none",lg:"2px solid #00FF8A"}}
             p={{ base: 6, md: 8 }}
             textAlign="center"
           >
@@ -83,10 +85,12 @@ export default function ContactPage() {
             </Text>
             <Button
               mt={5}
-              w="100%"
+              w="50%"
               variant="outline"
-              borderColor="#00FF8A"
+              borderColor={{base:"none",lg:"#00FF8A"}}
+              border={{base:"none",lg:"2px solid #00FF8A"}}
               color="#00FF8A"
+              bg="#1E1F23"
               _hover={{ bg: "#00FF8A", color: "#0E0F11" }}
               onClick={() =>
                 (window.location.href = "mailto:lyudmil.anastasov@gmail.com")
@@ -97,9 +101,9 @@ export default function ContactPage() {
           </Box>
 
           <Box
-            bg="#141518"
+            bg={{base:"#2B322C",lg:"#141518"}}
             borderRadius="20px"
-            border="2px solid #00FF8A"
+            border={{base:"none",lg:"2px solid #00FF8A"}}
             p={{ base: 6, md: 8 }}
             textAlign="center"
           >
@@ -117,10 +121,12 @@ export default function ContactPage() {
 
             <Button
               mt={5}
-              w="100%"
+              w="50%"
               variant="outline"
-              borderColor="#00FF8A"
+              border={{base:"none",lg:"2px solid #00FF8A"}}
+              borderColor={{base:"none",lg:"#00FF8A"}}
               color="#00FF8A"
+              bg="#1E1F23"
               _hover={{ bg: "#00FF8A", color: "#0E0F11" }}
               onClick={() => window.open(githubURL, "_blank")}
             >
@@ -128,10 +134,23 @@ export default function ContactPage() {
             </Button>
           </Box>
         </SimpleGrid>
-
+        <Box display={{base:"flex",lg:"none"}} flex="1" justifyContent="center" bg="#2B322C"  borderRadius="20px" h="100px" py="20px">
         <Text
           fontSize={{ base: "16px", md: "18px", lg: "20px" }}
           color={{ base: "white", lg: "gray.400" }}
+          textAlign="center"
+          maxW="90%"
+          py="0px"
+        >
+          {t(
+            "I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.",
+          )}
+        </Text>
+        </Box>
+        <Text
+          fontSize={{ base: "16px", md: "18px", lg: "20px" }}
+          color={{ base: "white", lg: "gray.400" }}
+          display={{base:"none",lg:"flex"}}
           textAlign="center"
           maxW="90%"
           py="0px"
