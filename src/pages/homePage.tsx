@@ -5,11 +5,8 @@ import {
   HStack,
   Image,
   Flex,
-  Button,
 } from "@chakra-ui/react";
-import {
-  ArrowUpRight,
-} from "lucide-react";
+
 import { useTranslation } from "react-i18next";
 
 import me from "../../images/me_png.png";
@@ -43,51 +40,7 @@ function SchoolRow({
 
 
 
-function ActionRow({
-  label,
-  sublabel,
-  onClick,
-}: {
-  label: string;
-  sublabel?: string;
-  onClick: () => void;
-}) {
-  return (
-    <Button
-      onClick={onClick}
-      w="100%"
-      justifyContent="space-between"
-      alignItems="center"
-      bg="transparent"
-      color="white"
-      border="1px solid rgba(255,255,255,0.10)"
-      h="auto"
-      py="12px"
-      px="14px"
-      borderRadius="14px"
-      _hover={{
-        bg: "rgba(255,255,255,0.05)",
-        borderColor: "rgba(255,255,255,0.18)",
-      }}
-      _active={{
-        bg: "rgba(255,255,255,0.07)",
-      }}
-    >
-      <Box textAlign="left">
-        <Text fontSize="14px" fontWeight="600" color="white">
-          {label}
-        </Text>
-        {sublabel && (
-          <Text fontSize="12px" color="gray.400" pt="2px">
-            {sublabel}
-          </Text>
-        )}
-      </Box>
 
-      <ArrowUpRight size={17} />
-    </Button>
-  );
-}
 
 export default function HomePage() {
   const { t } = useTranslation();

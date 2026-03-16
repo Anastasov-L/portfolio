@@ -42,7 +42,6 @@ function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState("home");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [hoverSelectedPage, setHoverSelectedPage] = useState<PageKey>("home");
   const mobileNavRef = useRef<HTMLDivElement | null>(null);
 
   const desktopButtonRefs: Record<
@@ -90,14 +89,6 @@ function App() {
     });
   };
 
-  const flagMap: Record<string, string> = {
-    en: gb,
-    nl: nl,
-    fr: fr,
-    de: de,
-  };
-
-  const [currentFlag, setCurrentFlag] = useState(flagMap[i18n.language] || gb);
 
   const langButtonRef = useRef<HTMLButtonElement | null>(null);
   const [langMenuWidth, setLangMenuWidth] = useState<number>(0);
@@ -231,7 +222,6 @@ return (
               _hover={{color:"white"}}
               color={currentPage === "about" ? "white":"gray"}
               onClick={() => {
-                setHoverSelectedPage("about");
                 setCurrentPage("about");
                 scrollToButton("about");
               }}
@@ -246,7 +236,6 @@ return (
               h="30px"
               ref={desktopButtonRefs.work}
               onClick={() => {
-                setHoverSelectedPage("work");
                 setCurrentPage("work");
                 scrollToButton("work");
               }}
@@ -268,7 +257,6 @@ return (
               _hover={{ color:"white"}}
               color={currentPage === "projects" ? "white":"gray"}
               onClick={() => {
-                setHoverSelectedPage("projects");
                 setCurrentPage("projects");
                 scrollToButton("projects");
               }}
@@ -283,7 +271,6 @@ return (
               w="fit-content"
               h="30px"
               onClick={() => {
-                setHoverSelectedPage("contact");
                 setCurrentPage("contact");
                 scrollToButton("contact");
               }}
@@ -339,7 +326,6 @@ return (
                       color="white"
                       onClick={() => {
                         i18n.changeLanguage("en");
-                        setCurrentFlag(flagMap["en"]);
                         setMenuOpen(false);
                       }}
                     >
@@ -351,7 +337,6 @@ return (
                       color="white"
                       onClick={() => {
                         i18n.changeLanguage("nl");
-                        setCurrentFlag(flagMap["nl"]);
                         setMenuOpen(false);
                       }}
                     >
@@ -363,7 +348,6 @@ return (
                       color="white"
                       onClick={() => {
                         i18n.changeLanguage("fr");
-                        setCurrentFlag(flagMap["fr"]);
                         setMenuOpen(false);
                       }}
                     >
@@ -375,7 +359,6 @@ return (
                       color="white"
                       onClick={() => {
                         i18n.changeLanguage("de");
-                        setCurrentFlag(flagMap["de"]);
                         setMenuOpen(false);
                       }}
                     >
@@ -548,7 +531,6 @@ return (
               borderRadius="0px"
               _hover={{ borderBottom: "1px solid #00FF8A" }}
               onClick={() => {
-                setHoverSelectedPage("about");
                 setCurrentPage("about");
                 setMobileMenuOpen(false);
               }}
