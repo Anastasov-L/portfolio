@@ -1,169 +1,159 @@
 import { Box, Text, VStack, SimpleGrid, Button } from "@chakra-ui/react";
-import { useTranslation } from "react-i18next";
 import { Mail, Linkedin, Github } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 const githubURL = "https://github.com/Anastasov-L";
 const linkedinURL = "https://www.linkedin.com/in/lyudmil-anastasov-325b7a241/";
+
+type ContactBlockProps = {
+  icon: React.ReactNode;
+  title: string;
+  line1: string;
+  line2?: string;
+  buttonText: string;
+  onClick: () => void;
+  withRightBorder?: boolean;
+};
+ 
+function ContactBlock({
+  icon,
+  title,
+  line1,
+  line2,
+  buttonText,
+  onClick,
+  withRightBorder = false,
+}: ContactBlockProps) {
+  return (
+    <Box
+      display="flex"
+      flexDir="column"
+      alignItems="center"
+      justifyContent="center"
+      textAlign="center"
+      px={{ base: 6, md: 8, lg: 10 }}
+      py={{ base: 10, md: 12, lg: 14 }}
+      borderRight={{
+        base: "none",
+        lg: withRightBorder ? "1px solid rgba(255,255,255,0.08)" : "none",
+      }}
+      borderBottom={{
+        base: withRightBorder ? "1px solid rgba(255,255,255,0.08)" : "none",
+        lg: "none",
+      }}
+      minH={{ base: "260px", lg: "360px" }}
+    >
+      <Box
+        w="92px"
+        h="92px"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+      //  border="1px solid rgba(255,255,255,0.10)"
+        color="white"
+        mb={7}
+      >
+        {icon}
+      </Box>
+
+      <Text
+        color="white"
+        fontSize={{ base: "24px", md: "26px", lg: "30px" }}
+        fontWeight="600"
+        letterSpacing="1px"
+        textTransform="uppercase"
+        mb={5}
+      >
+        {title}
+      </Text>
+
+      <VStack gap={1} mb={8}>
+        <Text
+          color="whiteAlpha.800"
+          fontSize={{ base: "15px", md: "16px", lg: "17px" }}
+          lineHeight="1.7"
+        >
+          {line1}
+        </Text>
+
+        {line2 && (
+          <Text
+            color="whiteAlpha.800"
+            fontSize={{ base: "15px", md: "16px", lg: "17px" }}
+            lineHeight="1.7"
+          >
+            {line2}
+          </Text>
+        )}
+      </VStack>
+
+      <Button
+        bg="transparent"
+        color="white"
+        border="1px solid rgba(255,255,255,0.18)"
+        minW={{ base: "160px", md: "180px", lg: "190px" }}
+        fontWeight="500"
+        _hover={{
+          bg: "rgba(255,255,255,0.06)",
+          borderColor: "rgba(255,255,255,0.28)",
+        }}
+        _active={{
+          bg: "rgba(255,255,255,0.08)",
+        }}
+        onClick={onClick}
+      >
+        {buttonText}
+      </Button>
+    </Box>
+  );
+}
 
 export default function ContactPage() {
   const { t } = useTranslation();
 
   return (
     <Box w="100%" h={{ base: "80%", lg: "100%" }} overflowY="auto" pr="10px">
-      <VStack w="100%" gap="0px">
-        <Box>
-          <Text
-            fontSize={{ base: "32px", md: "40px", lg: "56px" }}
-            fontWeight="700"
-            color="white"
-            visibility={{ base: "none", lg: "visible" }}
-          >
-            {t("Get in")}{" "}
-            <Box as="span" color="#00FF8A">
-              {t("Touch")}
-            </Box>
-          </Text>
-        </Box>
-
-        <SimpleGrid
-          columns={{ base: 1, md: 1, lg: 3 }}
+      <VStack
+        w="100%"
+        py={{ base: "50px", md: "30px", lg: "120px" }}
+        px={{ base: "20px", md: "40px", lg: "60px" }}
+        gap="0"
+      >
+        <Box
           w="100%"
-          gap={{ base: "45px", md: "30px", lg: "40px" }}
-          py="2vh"
-          pl="8px"
-          //justifyItems="center"
+          borderTop="1px solid rgba(255,255,255,0.08)"
+          borderBottom="1px solid rgba(255,255,255,0.08)"
         >
-          <Box
-            bg={{base:"#2B322C",lg:"#141518"}}
-            borderRadius="20px"
-            border={{base:"none",lg:"2px solid #00FF8A"}}
-            p={{ base: 6, md: 8 }}
-            textAlign="center"
-            justifyItems="center"
-          >
-            <Linkedin size={48} color="#00FF8A" />
-            <Text
-              fontSize={{ base: "20px", md: "22px", lg: "24px" }}
-              mt={3}
-              color="#00FF8A"
-            >
-              LinkedIn
-            </Text>
-            <Text color="white" mt={1} fontSize={{ base: "14px", md: "16px" }}>
-              {t("Connect with me professionally")}
-            </Text>
-
-            <Button
-              mt={5}
-              w={{base:"50%",lg:"100%"}}
-              bg="#1E1F23"
-              variant="outline"
-              borderColor={{base:"none",lg:"#00FF8A"}}
-              border={{base:"none",lg:"2px solid #00FF8A"}}
-              color="#00FF8A"
-              _hover={{ bg: "#00FF8A", color: "#0E0F11" }}
-              onClick={() => window.open(linkedinURL, "_blank")}
-            >
-              {t("View Profile")}
-            </Button>
-          </Box>
-
-          <Box
-            bg={{base:"#2B322C",lg:"#141518"}}
-            borderRadius="20px"
-            border={{base:"none",lg:"2px solid #00FF8A"}}
-            p={{ base: 6, md: 8 }}
-            textAlign="center"
-            justifyItems="center"
-          >
-            <Mail size={48} color="#00FF8A" />
-            <Text
-              fontSize={{ base: "20px", md: "22px", lg: "24px" }}
-              mt={3}
-              color="#00FF8A"
-            >
-              Email
-            </Text>
-            <Text color="white" mt={1} fontSize={{ base: "14px", md: "16px" }}>
-              lyudmil.anastasov@gmail.com
-            </Text>
-            <Button
-              mt={5}
-              w={{base:"50%",lg:"100%"}}
-              variant="outline"
-              borderColor={{base:"none",lg:"#00FF8A"}}
-              border={{base:"none",lg:"2px solid #00FF8A"}}
-              color="#00FF8A"
-              bg="#1E1F23"
-              _hover={{ bg: "#00FF8A", color: "#0E0F11" }}
+          <SimpleGrid columns={{ base: 1, lg: 3 }} >
+            <ContactBlock
+              icon={<Mail size={42} strokeWidth={1.8} />}
+              title={t("Email")}
+              line1="lyudmil.anastasov@gmail.com"
+              buttonText={t("Send Email")}
               onClick={() =>
                 (window.location.href = "mailto:lyudmil.anastasov@gmail.com")
               }
-            >
-              {t("Send Email")}
-            </Button>
-          </Box>
+              withRightBorder
+            />
 
-          <Box
-            bg={{base:"#2B322C",lg:"#141518"}}
-            borderRadius="20px"
-            border={{base:"none",lg:"2px solid #00FF8A"}}
-            p={{ base: 6, md: 8 }}
-            textAlign="center"
-            justifyItems="center"
-          >
-            <Github size={48} color="#00FF8A" />
-            <Text
-              fontSize={{ base: "20px", md: "22px", lg: "24px" }}
-              mt={3}
-              color="#00FF8A"
-            >
-              GitHub
-            </Text>
-            <Text color="white" mt={1} fontSize={{ base: "14px", md: "16px" }}>
-              {t("Check out my projects & code")}
-            </Text>
+            <ContactBlock
+              icon={<Linkedin size={42} strokeWidth={1.8} />}
+              title="LinkedIn"
+              line1={t("Connect with me professionally")}
+              buttonText={t("View Profile")}
+              onClick={() => window.open(linkedinURL, "_blank")}
+              withRightBorder
+            />
 
-            <Button
-              mt={5}
-              w={{base:"50%",lg:"100%"}}
-              variant="outline"
-              border={{base:"none",lg:"2px solid #00FF8A"}}
-              borderColor={{base:"none",lg:"#00FF8A"}}
-              color="#00FF8A"
-              bg="#1E1F23"
-              _hover={{ bg: "#00FF8A", color: "#0E0F11" }}
+            <ContactBlock
+              icon={<Github size={42} strokeWidth={1.8} />}
+              title="GitHub"
+              line1={t("Check out my projects and code")}
+              buttonText={t("View Repositories")}
               onClick={() => window.open(githubURL, "_blank")}
-            >
-              {t("View Repositories")}
-            </Button>
-          </Box>
-        </SimpleGrid>
-        <Box ml="8px" mt="30px" display={{base:"flex",lg:"none"}} flex="1" justifyContent="center" bg="#2B322C"  borderRadius="20px" h="100px" py="20px">
-        <Text
-          fontSize={{ base: "16px", md: "18px", lg: "20px" }}
-          color={{ base: "white", lg: "gray.400" }}
-          textAlign="center"
-          maxW="90%"
-          py="0px"
-        >
-          {t(
-            "I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.",
-          )}
-        </Text>
+            />
+          </SimpleGrid>
         </Box>
-        <Text
-          fontSize={{ base: "16px", md: "18px", lg: "20px" }}
-          color={{ base: "white", lg: "gray.400" }}
-          display={{base:"none",lg:"flex"}}
-          textAlign="center"
-          maxW="90%"
-          py="15px"
-        >
-          {t(
-            "I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.",
-          )}
-        </Text>
       </VStack>
     </Box>
   );
