@@ -125,8 +125,8 @@ export default function AboutPage() {
     <Box as="span"fontWeight="600">
       Deep Programming
     </Box>
-    .
-    Currently I'm working at Capisoft as a Full Stack Developer.
+    . 
+    {t(" Currently I'm working at Capisoft as a Full Stack Developer.")}
 
   </Text>
       <Spacer/>

@@ -383,7 +383,7 @@ export default function WorkExperiencePage() {
           <HStack w="100%" gap="20px" align="flex-start" overflow="visible">
             <Box
               w="24%"
-              h={expanded ? "420px" : "250px"}
+              h={expanded ? "440px" : "250px"}
               py="35px"
               px="20px"
               onClick={() => setExpanded(!expanded)}
@@ -413,7 +413,7 @@ export default function WorkExperiencePage() {
 
                 <VStack align="flex-start" pt={2}>
                   <Text color="gray.300">
-                    8-month intern, {t("now part of the team")} at Capisoft.nl
+                    {t("8-month intern,")} {t("now part of the team at ")}Capisoft.nl
                   </Text>
 
                   <Text color="gray.300" lineClamp={expanded ? "none" : "3"}>
@@ -439,7 +439,7 @@ export default function WorkExperiencePage() {
 
             <Box
               w="24%"
-              h={expanded2 ? "420px" : "250px"}
+              h={expanded2 ? "440px" : "250px"}
               py="35px"
               px="20px"
               onClick={() => setExpanded2(!expanded2)}
@@ -487,7 +487,7 @@ export default function WorkExperiencePage() {
 
             <Box
               w="24%"
-              h={expanded3 ? "420px" : "250px"}
+              h={expanded3 ? "440px" : "250px"}
               py="35px"
               px="20px"
               onClick={() => setExpanded3(!expanded3)}
@@ -525,7 +525,7 @@ export default function WorkExperiencePage() {
 
             <Box
               w="24%"
-              h={expanded4 ? "420px" : "250px"}
+              h={expanded4 ? "440px" : "250px"}
               py="35px"
               px="20px"
               onClick={() => setExpanded4(!expanded4)}
@@ -549,7 +549,7 @@ export default function WorkExperiencePage() {
                 </HStack>
 
                 <VStack align="flex-start" pt={2}>
-                  <Text color="gray.300">Part timing</Text>
+                  <Text color="gray.300">{t("Part time")}</Text>
 
                   <Text color="gray.300" lineClamp={expanded4 ? "none" : "4"}>
                     {t(

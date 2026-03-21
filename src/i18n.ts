@@ -20,8 +20,8 @@ i18n
       fr: { translation: frTranslations },
       de: { translation: deTranslations },
     },
-    lng: 'nl', // default language
-    fallbackLng: 'nl',
+    lng: 'en', // default language
+    fallbackLng: 'en',
     supportedLngs: ["en", "nl", "fr", "de"],
  //   detection: {
  //     order: ["querystring", "localStorage", "cookie", "navigator"],
